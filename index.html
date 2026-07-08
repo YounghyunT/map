@@ -308,10 +308,12 @@
         cardTitle: "탐진강 카누 리듬 레이스",
         maker: "Made by 장흥중 이원교",
         tooltip: "장흥중 이원교 학생이 만든 '탐진강 카누 리듬 레이스' 플레이!",
-        url: "https://jh-water-fight.vercel.app/",
+        url: "https://jhsds-air123-01.vercel.app",
         top: 39,
         left: 54,
-        theme: "from-cyan-300 to-blue-600"
+        theme: "from-cyan-300 to-blue-600",
+        thumbnail: "assets/tamjingang-thumb.png",
+        thumbnailPosition: "center"
       },
       {
         spot: "우드랜드",
@@ -322,7 +324,9 @@
         url: "https://example.com/woodland-jump",
         top: 22,
         left: 79,
-        theme: "from-lime-300 to-emerald-600"
+        theme: "from-lime-300 to-emerald-600",
+        thumbnail: "assets/woodland-thumb.png",
+        thumbnailPosition: "center"
       },
       {
         spot: "장흥토요시장",
@@ -333,7 +337,8 @@
         url: "https://manjae.vercel.app",
         top: 58,
         left: 38,
-        theme: "from-yellow-300 to-orange-500"
+        theme: "from-yellow-300 to-orange-500",
+        thumbnail: "assets/market-thumb.png"
       },
       {
         spot: "장흥군청",
@@ -344,18 +349,36 @@
         url: "https://jh-water-fight.vercel.app/",
         top: 61,
         left: 68,
-        theme: "from-blue-300 to-sky-700"
+        theme: "from-blue-300 to-sky-700",
+        thumbnail: "assets/jangheung-county-logo.png",
+        thumbnailFit: "contain",
+        thumbnailBg: "#ffffff"
+      },
+      {
+        spot: "정남진전망대",
+        title: "물축제 수중 줄다리기",
+        cardTitle: "물축제 수중 줄다리기",
+        maker: "Made by 장흥중 이원교",
+        tooltip: "장흥중 이원교 학생이 만든 '물축제 수중 줄다리기' 플레이!",
+        url: "https://jhsds-air123-02.vercel.app",
+        top: 79,
+        left: 63,
+        theme: "from-teal-300 to-cyan-700",
+        thumbnail: "assets/observatory-thumb.png",
+        thumbnailPosition: "center 28%"
       },
       {
         spot: "천관산",
-        title: "천관산 버섯 캐기",
-        cardTitle: "천관산에서 버섯캐기!",
-        maker: "Made by 장흥중 이원교",
-        tooltip: "장흥중 이원교 학생이 만든 '천관산에서 버섯캐기!' 플레이!",
+        title: "장흥 9경 9미 9품",
+        cardTitle: "장흥 9경 9미 9품!!",
+        maker: "Made by 장흥관산중 정재현",
+        tooltip: "장흥관산중 정재현 학생이 만든 '장흥 9경 9미 9품!!' 플레이!",
         url: "https://example.com/cheongwansan-mushroom",
         top: 14,
         left: 39,
-        theme: "from-pink-300 to-fuchsia-600"
+        theme: "from-pink-300 to-fuchsia-600",
+        thumbnail: "assets/cheongwansan-thumb.jpg",
+        thumbnailPosition: "center 42%"
       }
     ];
 
@@ -389,13 +412,25 @@
 
       const card = document.createElement("article");
       card.className = "arcade-card pixel-border rounded-lg p-2 md:p-4";
-      card.innerHTML = `
-        <div class="mb-3 rounded border-4 border-ink bg-ink p-1 md:mb-4 md:p-2">
-          <div class="screen-lines grid aspect-[4/3] place-items-center overflow-hidden rounded bg-gradient-to-br ${game.theme}">
+      const screenContent = game.thumbnail
+        ? `
+            <img
+              src="${game.thumbnail}"
+              alt="${game.spot} 게임 썸네일"
+              class="h-full w-full"
+              style="object-fit: ${game.thumbnailFit || "cover"}; object-position: ${game.thumbnailPosition || "center"}; background: ${game.thumbnailBg || "transparent"}"
+            />
+          `
+        : `
             <div class="text-center">
               <div class="mx-auto mb-2 grid h-9 w-9 place-items-center border-4 border-white bg-pixel text-base text-ink shadow-[3px_3px_0_rgba(18,48,90,.55)] md:mb-3 md:h-14 md:w-14 md:text-2xl">${String(index + 1).padStart(2, "0")}</div>
               <p class="px-1 text-xs leading-5 text-white drop-shadow-[2px_2px_0_#12305A] md:px-3 md:text-lg md:leading-7">${game.spot}</p>
             </div>
+          `;
+      card.innerHTML = `
+        <div class="mb-3 rounded border-4 border-ink bg-ink p-1 md:mb-4 md:p-2">
+          <div class="screen-lines grid aspect-[4/3] place-items-center overflow-hidden rounded bg-gradient-to-br ${game.theme}">
+            ${screenContent}
           </div>
         </div>
         <h3 class="min-h-12 text-sm leading-5 text-deep md:min-h-14 md:text-2xl md:leading-7">${game.cardTitle}</h3>
