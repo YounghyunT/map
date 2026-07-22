@@ -161,6 +161,20 @@
       box-shadow: 8px 13px 0 #12305A, 0 20px 36px rgba(0, 87, 231, .24);
     }
 
+    .history-gate {
+      background:
+        linear-gradient(90deg, rgba(255, 215, 0, .22), rgba(255, 255, 255, .78), rgba(255, 215, 0, .18)),
+        linear-gradient(135deg, #fff8dc 0%, #f7efe0 48%, #dceeff 100%);
+      box-shadow: 6px 6px 0 #12305A, inset 0 0 0 4px rgba(136, 58, 24, .22);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .history-gate:hover {
+      transform: translate(-2px, -6px) scale(1.01);
+      box-shadow: 9px 11px 0 #12305A, 0 20px 34px rgba(136, 58, 24, .22), inset 0 0 0 4px rgba(255, 215, 0, .35);
+      filter: saturate(1.08);
+    }
+
     .screen-lines {
       background-image:
         linear-gradient(rgba(255,255,255,.16) 50%, rgba(0,87,231,.08) 50%),
@@ -243,6 +257,29 @@
           MADE BY&nbsp;<span class="text-neon [text-shadow:1px_1px_0_#12305A]">장흥SDS</span>,&nbsp;팀 웹사이트 방문
         </a>
       </div>
+    </section>
+
+    <section id="history" class="mx-auto max-w-7xl px-4 py-8 md:px-6">
+      <div class="mb-5">
+        <p class="mb-2 inline-block border-4 border-ink bg-pixel px-3 py-1 text-sm text-ink shadow-[4px_4px_0_#12305A]">STAGE 00</p>
+      </div>
+      <a
+        href="https://jangheung-history.vercel.app/"
+        target="_blank"
+        rel="noreferrer"
+        class="history-gate block rounded-lg border-4 border-ink px-5 py-5 text-ink md:px-8 md:py-6"
+        aria-label="장흥 지역 역사 웹사이트 열기"
+      >
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="text-sm font-bold text-[#8A3A18] md:text-base">장흥 역사 탐험</p>
+            <h2 class="mt-2 text-2xl font-bold leading-tight text-deep md:text-4xl">장흥의 시간 속으로 입장하기</h2>
+          </div>
+          <div class="pixel-button inline-flex w-fit items-center justify-center bg-[#8A3A18] px-4 py-3 text-base font-bold text-pixel md:px-6 md:text-xl">
+            역사 웹사이트 PLAY
+          </div>
+        </div>
+      </a>
     </section>
 
     <section id="map" class="mx-auto max-w-7xl px-4 py-10 md:px-6">
